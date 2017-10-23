@@ -1,4 +1,13 @@
-FROM node:6.9.2
+FROM node:8-alpine
 EXPOSE 8080
-COPY app.js .
-CMD node app.js
+
+WORKDIR /usr/app
+
+COPY package.json .
+COPY package.json package-lock.json ./
+
+RUN npm install --quiet
+
+COPY . .
+
+CMD [ "npm", "start" ]

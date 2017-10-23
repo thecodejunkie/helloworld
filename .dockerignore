@@ -1,0 +1,12 @@
+# Directories
+.git/
+node_modules
+
+# Files
+.dockerignore
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+npm-debug.logd
+eslint-results.xml
