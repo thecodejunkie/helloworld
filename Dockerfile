@@ -1,13 +1,18 @@
 FROM node:8-alpine
-EXPOSE 8080
 
+# Create app directory
+RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
-COPY package.json .
-COPY package.json package-lock.json ./
-
+# Install dependencies
+COPY package.json /usr/app/package.json
+COPY package.json package-lock.json /usr/app/package-lock.json
 RUN npm install --quiet
 
-COPY . .
+# Bunlde server files
+COPY . /usr/app
 
+ENV NODE_ENV=production
+
+EXPOSE 8080
 CMD [ "npm", "start" ]
