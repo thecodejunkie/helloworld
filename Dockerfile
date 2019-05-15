@@ -5,8 +5,8 @@ RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
 # Install dependencies
-COPY package.json /usr/app/package.json
-COPY package.json package-lock.json /usr/app/package-lock.json
+COPY package.json /usr/app/
+COPY package.json package-lock.json /usr/app/
 RUN npm install --quiet
 
 # Bunlde server files
